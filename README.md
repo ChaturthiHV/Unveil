@@ -117,6 +117,7 @@ ASP.NET Core (modular monolith) + Blazor + PostgreSQL with EF Core, ASP.NET Core
 ## 8. Draft Architectural Flow Diagram
 
 The diagram follows a user from the moment they open UNVEIL to the point where they gain recognition. Box colors show **who in the team builds that part** (see the legend below the diagram).
+<img width="1054" height="2526" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/97f895ba-c255-4b52-8f44-893e0a92adf6" />
 
 ```mermaid
 flowchart TD
