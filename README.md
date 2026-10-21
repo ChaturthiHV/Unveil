@@ -120,40 +120,40 @@ The diagram follows a user from the moment they open UNVEIL to the point where t
 
 ```mermaid
 flowchart TD
-    A(["START: User opens UNVEIL"]):::start --> B["Home Page<br/>Trending, New Talent, Categories"]:::drishti
-    B --> C["Explore and Search<br/>filter by category, sort by Trending / New / Top"]:::disha
+    A(["START<br/>User opens UNVEIL"]):::start --> B["Home Page<br/>Trending, New Talent,<br/>Categories"]:::drishti
+    B --> C["Explore and Search<br/>Filter by category,<br/>sort Trending / New / Top"]:::disha
     C --> D{"Logged in?"}:::drishti
 
-    D -->|No| E["Sign Up / Login Page"]:::drishti
-    E --> F["Auth API<br/>validate input, hash password, issue JWT"]:::drishti
+    D -->|No| E["Sign Up / Login<br/>Page"]:::drishti
+    E --> F["Auth API<br/>Validate, hash password,<br/>issue JWT"]:::drishti
     F --> G[("MongoDB<br/>users")]:::db
-    G --> H["Token saved, role applied<br/>Creator / Judge / Admin"]:::drishti
+    G --> H["Token saved,<br/>role applied<br/>Creator / Judge / Admin"]:::drishti
     D -->|Yes| H
 
-    H --> I["Creator Dashboard and Profile"]:::drishti
-    I --> J["Upload Page<br/>file or video link, title, category, tags"]:::disha
-    J --> K["Entries API<br/>check file type and size, create entry"]:::disha
+    H --> I["Creator Dashboard<br/>and Profile"]:::drishti
+    I --> J["Upload Page<br/>File or video link,<br/>title, category, tags"]:::disha
+    J --> K["Entries API<br/>Check file type and size,<br/>create entry"]:::disha
     K --> L[("Cloudinary<br/>images and audio")]:::db
     K --> M[("MongoDB<br/>entries")]:::db
-    M --> N["Entry Page<br/>player, details, tags"]:::disha
+    M --> N["Entry Page<br/>Player, details, tags"]:::disha
 
-    N --> O["Viewer taps Vote"]:::anagha
-    O --> P["Votes API<br/>one vote per user, block self-vote, rate limit"]:::anagha
+    N --> O["Viewer taps<br/>Vote"]:::anagha
+    O --> P["Votes API<br/>One vote per user,<br/>block self-vote,<br/>rate limit"]:::anagha
     P --> Q[("MongoDB<br/>votes")]:::db
-    Q --> R["Socket.io<br/>live vote count update"]:::anagha
-    N --> S["Comments and Feedback Chips"]:::anagha
+    Q --> R["Socket.io<br/>Live vote count"]:::anagha
+    N --> S["Comments and<br/>Feedback Chips"]:::anagha
 
-    Q --> T["Scheduled Job - node-cron<br/>recompute rankings"]:::anagha
-    T --> U["Leaderboard Page<br/>Top, Trending, New Talent"]:::anagha
+    Q --> T["Scheduled Job<br/>node-cron<br/>Recompute rankings"]:::anagha
+    T --> U["Leaderboard Page<br/>Top and Trending"]:::anagha
 
-    U --> V["Join Competition<br/>submit entry"]:::chaturthi
-    V --> W["Competition API<br/>stages, scoring, winners"]:::chaturthi
-    W --> X["Winners and Achievements<br/>shown on creator profile"]:::chaturthi
+    U --> V["Join Competition<br/>Submit entry"]:::chaturthi
+    V --> W["Competition API<br/>Stages, scoring,<br/>winners"]:::chaturthi
+    W --> X["Winners and<br/>Achievements on<br/>creator profile"]:::chaturthi
 
-    N --> Y["Report content"]:::chaturthi
-    Y --> Z["Admin Panel<br/>review reports, hide content, audit log"]:::chaturthi
+    N --> Y["Report<br/>content"]:::chaturthi
+    Y --> Z["Admin Panel<br/>Review reports,<br/>hide content,<br/>audit log"]:::chaturthi
 
-    X --> FIN(["END: Creator gains recognition and portfolio"]):::start
+    X --> FIN(["END<br/>Creator gains recognition<br/>and portfolio"]):::start
 
     classDef start fill:#fef9c3,stroke:#a16207,stroke-width:2px,color:#111
     classDef chaturthi fill:#e9d5ff,stroke:#7e22ce,stroke-width:2px,color:#111
